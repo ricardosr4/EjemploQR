@@ -17,7 +17,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initScanner() {
-        IntentIntegrator(this).initiateScan()
+
+        val integrator = IntentIntegrator(this)
+        integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
+        integrator.setPrompt("primer codigo QR de TOTTIN")
+        integrator.setTorchEnabled(false)
+        integrator.setBeepEnabled(true)
+        integrator.initiateScan()
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
