@@ -22,13 +22,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
 
-        val result = IntentIntegrator.parseActivityResult(resultCode, resultCode, data)
+        val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
         if (result != null) {
             if (result.contents == null) {
                 Toast.makeText(this, "cancelado", Toast.LENGTH_SHORT).show()
 
             } else {
-                Toast.makeText(this, "el valor escaneado es ${result.contents}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "el valor escaneado es:" + result.contents, Toast.LENGTH_SHORT).show()
 
             }
         } else {
